@@ -8,7 +8,9 @@ class Animal:
         return self.__age
 
     def set_age(self, age):
-        if age > 0:
+        if not isinstance(age, int):
+            print('Возраст должен быть целым числом')
+        elif age > 0:
             self.__age = age
         else:
             print('Ошибка неправильный возраст!')
@@ -37,3 +39,16 @@ class Dog(Animal):
 
     def voice(self):
         print('Гав!')
+
+
+tom = Cat('Tom', 'brown')
+chop = Dog('Chop', 'buld')
+
+tom.voice()
+tom.purr()
+
+tom.get_age()
+tom.set_age(6)
+tom.get_age()
+tom.set_age(-7)
+tom.set_age(None)
